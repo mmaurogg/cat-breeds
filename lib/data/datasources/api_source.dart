@@ -19,6 +19,7 @@ class ApiSource {
         return jsonResponse;
       } else {
         print('Request failed with status: ${response.statusCode}.');
+        throw Exception('Request failed with status: ${response.statusCode}.');
       }
     } catch (e) {
       print('Error: $e');

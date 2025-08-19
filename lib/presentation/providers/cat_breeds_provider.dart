@@ -11,9 +11,7 @@ final catBreedsProvider =
 class CatBreedsNotifier extends StateNotifier<CatBreedState> {
   final CatBreedUseCase _catBreedUseCase;
 
-  CatBreedsNotifier(this._catBreedUseCase) : super(CatBreedState()) {
-    loadCatBreeds();
-  }
+  CatBreedsNotifier(this._catBreedUseCase) : super(CatBreedState());
 
   Future<void> loadCatBreeds() async {
     state = state.copyWith(isLoading: true);
@@ -39,9 +37,9 @@ class CatBreedsNotifier extends StateNotifier<CatBreedState> {
         });
   }
 
-  void loadNextPage(int page) {
+  Future<void> loadNextPage(int page) async {
     state = state.copyWith(isLoading: true);
-    _catBreedUseCase
+    await _catBreedUseCase
         .getNextCatbreeds(page)!
         .then((catBreeds) {
           if (catBreeds != null) {
@@ -74,7 +72,7 @@ class CatBreedsNotifier extends StateNotifier<CatBreedState> {
     await _catBreedUseCase
         .searchCatbreeds(query)!
         .then((catBreeds) {
-          if (catBreeds != null) {
+          if (catBreeds != null && catBreeds.isNotEmpty) {
             state = state.copyWith(
               catBreeds: catBreeds,
               isSearching: true,

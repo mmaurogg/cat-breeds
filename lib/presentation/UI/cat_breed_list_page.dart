@@ -23,6 +23,10 @@ class _CatBreedListPageState extends ConsumerState<CatBreedListPage> {
 
     FlutterNativeSplash.remove();
 
+    Future.microtask(() {
+      ref.read(catBreedsProvider.notifier).loadCatBreeds();
+    });
+
     _controller.addListener(scrollController);
   }
 
