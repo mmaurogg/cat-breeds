@@ -32,6 +32,12 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+**/.packages
+**/generated_plugin_registrant.dart
+
+# Flutter Native Splash
+**/ios/Runner/Assets.xcassets/Splash.imageset/
+**/android/app/src/main/res/drawable/launch_background.xml
 
 # Symbolication related
 app.*.symbols
