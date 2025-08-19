@@ -47,9 +47,6 @@ El proyecto está organizado en las siguientes capas:
 1. Clona el repositorio: `git clone https://github.com/tu-usuario/catbreeds.git`
 2. Navega al directorio del proyecto: `cd catbreeds`
 3. Instala las dependencias: `flutter pub get`
-4. Genera los archivos necesarios: 
-    `flutter pub run build_runner build`
-    `flutter pub run flutter_native_splash:create`
 
 ## **Ejecución**
 1. Limpia el proyecto: `flutter clean`
